@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Own Quiz</title>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+
+<body>
+    <div class="flex h-screen">
+
+        <div class="flex flex-col justify-center min-h-[800px] items-center mobile:w-full tablet:w-full desktop:w-3/5 ">
+
+            <h1 class="text-gray-800 font-bold text-3xl mobile:text-[25px]">Create your own quiz now!</h1>
+
+            <div class="flex flex-col justify-center items-center w-full gap-4 p-10">
+
+                <input id="quizName" class="bg-green-100 placeholder-gray-700 w-2/5 mobile:w-3/6 p-3 hover:bg-green-200 rounded-xl" type="text" placeholder="Quiz Name">
+                <input id="question" class="bg-green-100 placeholder-gray-700 w-4/5 mobile:w-full p-3 hover:bg-green-200 rounded-xl" type="text" placeholder="Question">
+                <input id="option1" class="bg-green-100 placeholder-gray-700 w-3/5 mobile:w-5/6 p-3 hover:bg-green-200 rounded-xl" type="text" placeholder="Option 1">
+                <input id="option2" class="bg-green-100 placeholder-gray-700 w-3/5 mobile:w-5/6 p-3 hover:bg-green-200 rounded-xl" type="text" placeholder="Option 2">
+                <input id="option3" class="bg-green-100 placeholder-gray-700 w-3/5 mobile:w-5/6 p-3 hover:bg-green-200 rounded-xl" type="text" placeholder="Option 3">
+                <input id="option4" class="bg-green-100 placeholder-gray-700 w-3/5 mobile:w-5/6 p-3 hover:bg-green-200 rounded-xl" type="text" placeholder="Option 4">
+    
+                <div class="bg-green-200 p-3 rounded-lg mobile:flex mobile:flex-col mobile:gap-1">
+                    Correct Option: 
+                    <label class="hover:text-gray-600 mx-3 text-gray-700 cursor-pointer">
+                        <input type="radio" name="ans" value="1"> Option1
+                    </label>
+                    
+                    <label class="hover:text-gray-600 mx-3 text-gray-700 cursor-pointer">
+                        <input type="radio" name="ans" value="2"> Option2
+                    </label>
+                    
+                    <label class="hover:text-gray-600 mx-3 text-gray-700 cursor-pointer">
+                        <input type="radio" name="ans" value="3"> Option3
+                    </label>
+                    
+                    <label class="hover:text-gray-600 mx-3 text-gray-700 cursor-pointer">
+                        <input type="radio" name="ans" value="4"> Option4
+                    </label>
+                    
+                </div>
+
+                <button class="bg-purple-300 text-black px-6 py-2 rounded-lg hover:bg-purple-400" onclick="addQuestionToDB()">Add to quiz</button>
+    
+            </div>
+        </div>
+
+        <div class="w-2/5 flex justify-center items-center mobile:hidden tablet:hidden">
+            <img src="assets/img2.avif" alt="">
+        </div>
+
+
+    </div>
+
+    <script src="createQuizzes.js"></script>
+</body>
+
+</html>

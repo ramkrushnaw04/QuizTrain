@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myQuiz</title>
+    <link rel="stylesheet" href="src/output.css">
+    <style>
+        
+        ol.list-none {
+            list-style-type: none;
+            counter-reset: list-item-alphabet;
+        }
+
+        .list-item-alphabet::before {
+            margin-right: 20px;
+            background-color: #007c9e;
+            padding: 10px;
+            border-radius: 14px;
+            content: counter(list-item-alphabet, upper-alpha);
+            counter-increment: list-item-alphabet;
+        }
+
+        .chart {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            background: conic-gradient(
+                #49de80 0% var(--correct),
+                #f87171 var(--correct) calc(var(--correct) + var(--incorrect)),
+                #94a3b8 calc(var(--correct) + var(--incorrect)) 100%);
+
+            transition: all 0.3s ease 0ms;
+
+        }
+
+        
+
+    </style>
+</head>
+
+<body>
+    <!-- <nav>
+        <ul class="flex gap-5 justify-center bg-cyan-950 text-slate-100 h-14 items-center">
+            <li class="cursor-pointer hover:text-red-500"><a href="startScreen.html">Home</a></li>
+            <li class="cursor-pointer hover:text-red-500">All Quizes</li>
+            <li class="cursor-pointer hover:text-red-500">My Quizes</li>
+            <li class="cursor-pointer hover:text-red-500"><a href="createQuizes.html">Create Quizes</a></li>
+        </ul>
+    </nav> -->
+    <main class="flex bg-sky-800">
+
+        <div id="complitionScreen" class="text-black  w-full h-full absolute bg-resultPageBg flex  justify-center items-center gap-24 z-20 hidden">
+           
+            <div class=" bg-yellow-200 p-10 rounded-xl flex flex-col gap-3 justify-center items-center ">
+                
+                <div class="first">
+                    <p class="font-bold text-xl ">Here's Your Result</p>
+                </div>
+
+                <div class="second flex gap-20 justify-center items-center mobile:flex-col tablet:gap-7 tablet:flex-col mobile:gap-7 ">
+                    
+                    <!-- result percentage -->
+                    <p id="resultPercentage" class="text-white font-extralight text-6xl rounded-full bg-blue-400 p-9">38%</p>
+
+                    <!-- result stats -->
+                    <div> 
+                        <p id="resultStats" class="text-xl bg-pink-500 p-10 rounded-3xl">
+                            Correct: 3
+                            <br>
+                            Incorrect: 4
+                            <br>
+                            Skipped: 1
+                        </p>
+                    </div>
+                
+                    
+                    <div class="flex flex-col gap-3 justify-center items-center">
+                        
+                        <!-- flowchart -->
+                        <div class="chart" style="--correct: 60%; --incorrect: 30%;"></div>
+
+                        <!-- flowchart index -->
+                        <div class="flex flex-col ">
+                            <div class="flex gap-3">
+                                <div class="flex gap-1 justify-start items-center">
+                                    <div class="bg-green-400 w-2 h-2 rounded-sm"></div>
+                                    <p class="text-xs">Correct</p>
+                                </div>
+
+                                <div class="flex gap-1 justify-start items-center">
+                                    <div class="bg-red-400 w-2 h-2 rounded-sm"></div>
+                                    <p class="text-xs">Incorrect</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-1 justify-start items-center">
+                                <div class="bg-slate-400 w-2 h-2 rounded-sm"></div>
+                                <p class="text-xs">Unattempted</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+
+                <!-- buttons -->
+                <div class="flex justify-center gap-9 items-center pt-5 w-full">
+                    
+                    <button class="p-2 bg-blue-400 rounded-md hover:bg-red-300"><a
+                        href="http://127.0.0.1:5500/startScreen.html">Reurn Home</a>
+                    </button>
+
+                    <button class="p-2 bg-blue-400 rounded-md hover:bg-red-300"><a
+                        href="http://127.0.0.1:5500/main.html">Take Again</a>
+                    </button>
+
+                </div>
+
+                
+            </div>
+            
+
+        </div>
+
+
+        <div class="left flex flex-col w-30p bg-sky-800 mobile:gap-7 mobile:h-full mobile:w-full mobile:absolute mobile:right-100  transition-all duration-300 ease-in-out h-[98vh]">
+
+            <div class="ham z-10 w-9 h-7 m-5 absolute left-100 top-0  tablet:hidden desktop:hidden cursor-pointer transition-all duration-300 ease-in-out flex flex-col justify-between items-center">
+                <div class="line1 bg-black w-full h-1 transition-all duration-300 ease-in-out"></div>
+                <div class="line2 bg-black w-full h-1 transition-all duration-300 ease-in-out"></div>
+                <div class="line3 bg-black w-full h-1 transition-all duration-300 ease-in-out"></div>
+            </div>
+
+            
+            <div class="h-[170px]">
+                <div id="quizTitle" class="text-slate-900 text-[35px] px-5 font-bold pt-4  mobile:text-[35px]">Quiz Name</div>
+    
+                <div class="flex flex-col gap-1 p-5">
+                    
+                    <div class="flex items-center gap-3">
+                        <div class="bg-green-400 w-3 h-3 rounded-sm"></div>
+                        <p>Correct</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-red-400 w-3 h-3 rounded-sm"></div>
+                        <p>Inorrect</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-slate-400 w-3 h-3 rounded-sm"></div>
+                        <p>Not attempted</p>
+                    </div>
+    
+                </div>
+            </div>
+
+            <div class="ques flex flex-col gap-2 items-center p-3 overflow-scroll max-h-[100vh-150px]"> 
+
+                <!-- <div class="w-[97%] h-[60px] relative items-center flex justify-center ">
+                    <div class="w-1/6 h-full absolute right-0 bg-gradient-to-l from-blue-200 to-transparent rounded-lg cursor-pointer" onmouseover="leftBlurMouseenter(event)" onmouseleave="leftBlurMouseleave(event)" onclick="changeQuestionFromLeftBlur(event)" ></div>
+                    
+                    <button class="h-full bg-blue-200 p-2 rounded-lg overflow-clip whitespace-nowrap w-full text-left hover:bg-blue-400" onclick="changeQuestionFromLeft(event)" onmouseover="leftMouseenter(event)" onmouseleave="leftMouseleave(event)">1. ${q.question}</button>
+                </div> -->
+
+            </div>
+
+            <div class="w-full h-[120px] flex justify-center items-center mb-[10px]">
+                <button ><a class="bg-red-300 px-[25px] py-[9px] rounded-[30px] hover:bg-purple-400 " href="startScreen.html">quit</a></button>
+            </div>
+
+        </div>
+
+        <hero class="right h-screen w-full flex flex-col items-center justify-center mobile:justify-center gap-y-12  bg-blue-200 overflow-y-scroll">
+
+            <div id="question" class="font-bold w-3/5 mobile:w-4/5 mobile:text-center text-4xl mobile:text-[30px] flex justify-left items-start">1. Question First</div>
+
+            <div class=" w-3/5 mobile:w-4/5 text-lg">
+                <ol class="list-none">
+                    <li id="option1"
+                        class="list-item-alphabet my-4 bg-sky-300 p-5 py-3 mobile:p-4 rounded-3xl hover:bg-cyan-300 cursor-pointer flex justify-left items-center overflow-x-scroll">
+                        option1
+                    </li>
+
+                    <li id="option2"
+                        class="list-item-alphabet my-4 bg-sky-300 p-5 py-3 mobile:p-4 rounded-3xl hover:bg-cyan-300  cursor-pointer flex justify-left items-center overflow-x-scroll">
+                        option2
+                    </li>
+
+                    <li id="option3"
+                        class=" list-item-alphabet my-4 bg-sky-300 p-5 py-3 mobile:p-4 rounded-3xl hover:bg-cyan-300 cursor-pointer flex justify-left items-center overflow-x-scroll">
+                        option3
+                    </li>
+
+                    <li id="option4"
+                        class=" list-item-alphabet my-4 bg-sky-300 p-5 py-3 mobile:p-4 rounded-3xl hover:bg-cyan-300 cursor-pointer flex justify-left items-center overflow-x-scroll">
+                        option4
+                    </li>
+                </ol>
+            </div>
+
+
+            <div class="flex flex-row justify-between mobile:justify-evenly mobile:gap-3 mobile:w-full w-60p min-w-96" ">
+                <button class="pre bg-purple-400 hover:bg-pink-400 px-5  mobile:px-2 rounded-lg">Previous</button>
+
+                <button id="save" class="px-5 py-2 bg-blue-400 rounded-lg mobile:px-2  hover:bg-red-400">Save</button>
+                <button id="submit" class="px-5 py-2 bg-blue-400 rounded-lg mobile:px-2  hover:bg-red-400">Submit</button>
+
+                <button class="next bg-purple-400 hover:bg-pink-400 px-5  mobile:px-2 rounded-lg">Next</button>
+            </div>
+
+            
+        </hero>
+    </main>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>

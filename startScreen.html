@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quizTrain</title>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+
+<body>
+    <div class="flex flex-col h-screen">
+
+        <div class="h-1/5  flex items-center bg-red-100  mobile:justify-center mobile:gap-5 mobile:flex-col tablet:justify-between tablet:px-[20px] desktop:flex-row desktop:px-20 desktop:justify-between min-h-[100px] ">
+
+            <h1 class="logo font-extrabold mobile:text-[30px] tablet:px-[20px] tablet:text-[30px] desktop:text-4xl">QuizTrain</h1>
+
+            <ul class="flex gap-10 desktop:font-bold "> 
+                <li><a href="">About us</a></li>
+                <li><a href="">Contact us</a></li>
+            </ul>
+        </div>
+
+        <div class="h-4/5  desktop:flex desktop:min-h-[500px] mobile:h-[340px] ">
+
+            <div class="flex flex-col h-full justify-center mobile:gap-y-7 tablet:gap-y-[50px] tablet:h-[400px] desktop:py-20 desktop:w-3/5  desktop:gap-y-16 px-[45px]">
+                
+                <h1 class=" font-bold mobile:text-center mobile:text-[25px]  tablet:text-[30px] desktop:text-4xl ">Train your brain with QuizTrain</h1>
+
+                <h3 class="mobile:text-center  tablet:text-[20px]  "> 
+                    QuizTrain: Take quizzes, make quizzes. Your one-stop-shop for knowledge and creativity. Join us and embark on an adventure of learning and discovery!
+                </h3>
+
+                <div class="flex justify-start mobile:justify-center fablet:justify-start gap-[35px]">
+
+                    <button class="flex justify-center items-center bg-purple-300 p-3 h-12 rounded-3xl hover:bg-purple-400 mobile:text-[14px] mobile:h-9"><a
+                            href="http://127.0.0.1:5500/createQuizzes.html">Create</a></button>
+
+                    <div class="relative">
+                        <div id="attendQuizButton" class="bg-green-300 hover:bg-green-400 p-3 rounded-3xl text-center cursor-pointer flex justify-center items-center mobile:text-[14px] mobile:h-9">
+                            Attempt
+
+                            <ul id="quizOptions" class="absolute bg-gray-300 hidden h-32 mobile:w-28 desktop:w-32 mobile:top-9 tablet:top-12 tablet:w-28 desktop:top-12 overflow-y-auto rounded-xl">
+                                
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="desktop:w-2/5  flex justify-center items-center ">
+                <img class="tablet:w-[500px]" src="assets/img1.jpg" alt="">
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <script src="startScreen.js"></script>
+
+</body>
+
+</html>
